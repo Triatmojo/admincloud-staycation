@@ -37,7 +37,7 @@
                                         <td><%= feature[i].name %></td>
                                         <td><%= feature[i].qty %></td>
                                         <td>
-                                            <img style="width: 32px; height: 32px;" src="https://admincloud-staycation.hero.com/<%= feature[i].imageUrl %>" alt="Image activity">
+                                            <img style="width: 32px; height: 32px;" src="https://admincloud-staycation.herokuapp.com/<%= feature[i].imageUrl %>" alt="Image activity">
                                         </td>
                                         <td>
                                             <form action="/admin/item/<%= itemId %>/feature/<%= feature[i].id %>?_method=DELETE" method="POST"> 
