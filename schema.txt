@@ -1,0 +1,67 @@
+//collection = penggabungan antar table
+
+category : {
+    name: string
+},
+
+image: {
+    imageUrl: string
+},
+
+item: {
+    title: string,
+    price: number,
+    country: string,
+    city: string,
+    isPopular: boolean,
+    description: string,
+    imageId: [{_id: ObjectID}],
+    featureId: [{_id: ObjectID}],
+    activityId: [{_id: ObjectID}]
+},
+
+feature : {
+    name: string,
+    qty: number,
+    imageUrl: string
+},
+
+activity: {
+    name: string,
+    imageUrl: string,
+    type: string
+    isPopular: boolean,
+}, 
+
+booking: {
+    bookingStartDate: date,
+    bookingEndDate: date,
+    itemId: [{
+        _id: ObjectId,
+        price: number,
+        night: number 
+    }],
+    memberId : [{_id: ObjectId}],
+    bankId: [{_id: ObjectId}],
+    proofPayment: string,
+    bankFrom: string,
+    accountHolder: string,
+    status: String,
+},
+
+bank: {
+    nameBank: string,
+    rekening: string,
+    name: string,
+}
+
+member: {
+    firstName: string,
+    lastName: string,
+    email: string,
+    phoneNumber: string
+}
+
+
+
+

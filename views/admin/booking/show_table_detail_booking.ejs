@@ -1,0 +1,52 @@
+<%- include('../../partials/message.ejs'); %>
+<div class="card shadow mt-2">
+    <div class="card-header py-3">
+        <a href="/admin/booking" class="btn btn-sm btn-primary">
+            <i class="fas fa-angle-left"></i>
+            Back
+        </a>
+    </div>
+    <div class="card-body table-responsive">
+        <div class="row">
+            <div class="col-md-5"> 
+                    <img src="http://localhost:3000/<%= booking.payments.proofPayment %>" alt="Image Booking" class="w-75">
+            </div>
+            <div class="col-md-7">
+                <table class="table table-striped" id="datatableFeature">
+                            <thead>
+                                 <th>Name Member</th>
+                                 <th>Total</th>
+                                 <th>Bank From</th>
+                                 <th>Title</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><%= booking.memberId.firstName %> <%= booking.memberId.lastName %></td>
+                                    <td>$ <%= booking.total %></td>
+                                    <td><%= booking.payments.bankFrom %></td>
+                                    <td><%= booking.itemId.title %></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <% if(booking.payments.status == 'Proses') { %>
+                            <div class="row ml-auto">
+                                <form action="/admin/booking/<%= booking.id %>/reject?_method=PUT" method="POST">
+                                    <button type="submit" class="btn btn-outline-danger btn-sm mr-2">
+                                        <i class="fas fa-times"></i>
+                                        Reject
+                                    </button>
+                                </form>
+                    
+                                 <form action="/admin/booking/<%= booking.id %>/confirmation?_method=PUT" method="POST">
+                                    <button type="submit" class="btn btn-outline-success btn-sm">
+                                        <i class="fas fa-check"></i>
+                                        Confirmation
+                                    </button>
+                                </form> 
+                            </div>
+                        <% } %>
+            </div>
+        </div>
+    </div>
+</div>
+   

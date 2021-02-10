@@ -1,0 +1,52 @@
+<%- include('../../partials/header.ejs'); %>
+
+<div class="wrapper">
+
+  <!-- Navbar -->
+  <%- include('../../partials/navbar.ejs'); %>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <%- include('../../partials/sidebar.ejs'); %>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">Bank</h1>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <%- include('add_bank.ejs'); %>
+    <%- include('edit_bank.ejs'); %>
+    <%- include('table_bank.ejs'); %>
+
+    <!-- /.content-header -->
+  </div>
+  <!-- /.content-wrapper -->
+
+
+  <!-- Main Footer -->
+  <%- include('../../partials/footer.ejs'); %>
+<!-- ./wrapper -->
+
+<!-- REQUIRED SCRIPTS -->
+ <%- include('../../partials/js.ejs'); %>
+
+ <script>
+   $('#datatable').on('click', '.button-update', function() {
+     let id = $(this).data('id');
+     let nameBank = $(this).data('namebank');
+     let nomorRekening = $(this).data('nomorrekening');
+     let name = $(this).data('name');
+     $('#edit-modal').modal('show');
+     $('.id').val(id);
+     $('.name').val(name);
+     $('.nameBank').val(nameBank);
+     $('.nomorRekening').val(nomorRekening);
+   })
+ </script>

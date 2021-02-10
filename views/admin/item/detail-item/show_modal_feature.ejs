@@ -1,0 +1,36 @@
+  
+  <!-- Modal -->
+  <div class="modal fade" id="edit-modal-feature" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edit Feature</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form action="/admin/item/update/feature?_method=PUT" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" placeholder="Enter name" name="name" class="form-control name" required>
+                </div>
+                <div class="form-group">
+                    <label for="qty">QTY</label>
+                    <input type="number" placeholder="Enter qty" name="qty" class="form-control qty" required>
+                </div>
+                <div class="form-group">
+                    <label for="image">Image</label>
+                    <input type="file" name="image" class="form-control">
+                </div>
+            </div>
+            <div class="modal-footer">
+              <input type="hidden" class="id" name="id">
+              <input type="hidden" value="<%= itemId %>" name="itemId">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Update</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>

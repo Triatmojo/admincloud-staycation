@@ -1,0 +1,54 @@
+<!-- main content -->
+<div class="content">
+    <div class="container-fluid">
+        <%- include('../../partials/message.ejs'); %>
+        <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col d-flex">
+                       <h3 class="card-title align-self-center">
+                           Tabel Bank
+                       </h3>
+                    </div>
+                    <div class="col text-right">
+                        <button type="button" data-toggle="modal" data-target="#add-modal" class="btn btn-sm btn-primary">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-body table-responsive">
+                <table class="table table-striped" id="datatable">
+                    <thead>
+                        <th>No</th>
+                        <th>Name Bank</th>
+                        <th>No Rekening</th>
+                        <th>Name</th>
+                        <th>Image</th>
+                        <th>Action</th>
+                    </thead>
+                    <tbody>
+                        <% for(let i = 0; i < bank.length; i++) { %>
+                            <tr>
+                                <td><%= i + 1 %></td>
+                                <td> <%= bank[i].nameBank %></td>
+                                <td> <%= bank[i].nomorRekening %></td>
+                                <td> <%= bank[i].name %></td>
+                                <td>
+                                    <img src="http://localhost:3000/<%= bank[i].imageUrl %>" height="50" alt="">
+                                </td>
+                                <td>
+                                    <form action="/admin/bank/<%= bank[i].id %>?_method=DELETE" method="POST">
+                                        <a href="javascript:void()" data-id="<%= bank[i].id %>" data-name="<%= bank[i].name %>" data-nameBank="<%= bank[i].nameBank %>" data-nomorRekening="<%= bank[i].nomorRekening %>" type="button" class="btn btn-sm btn-outline-warning button-update"><i class="fas fa-edit"></i></a>
+                                        <button type="submit" class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

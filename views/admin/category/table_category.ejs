@@ -1,0 +1,47 @@
+<!-- main content -->
+<div class="content">
+    <div class="container-fluid">
+        <%- include('../../partials/message.ejs'); %>
+        <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col d-flex">
+                       <h3 class="card-title align-self-center">
+                           Tabel Category
+                       </h3>
+                    </div>
+                    <div class="col text-right">
+                        <!-- !-- Button trigger modal --> 
+                        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#add-modal">
+                            <i class="fas fa-plus"></i>
+                          </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-body table-responsive">
+                <table class="table table-striped" id="datatable">
+                    <thead>
+                        <th>No</th>
+                        <th>Name</th>
+                        <th>Action</th>
+                    </thead>
+                    <tbody>
+                        <% for(let i = 0; i < category.length; i++) { %>
+                            <tr>
+                                <td><%= i + 1 %></td>
+                                <td><%= category[i].name %></td>
+                                <td>
+                                    <form action="/admin/category/<%= category[i].id %>?_method=DELETE" method="POST">
+                                        <a href="javascript:void()" data-id="<%= category[i].id %>" data-name="<%= category[i].name %>" type="button" class="button-update btn btn-outline-warning btn-circle btn-sm"><i class="fas fa-edit"></i></a>
+                                        <button type="submit" class="btn btn-outline-danger btn-circle btn-sm"><i class="fas fa-trash"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

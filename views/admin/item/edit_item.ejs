@@ -1,0 +1,40 @@
+<div class="card show mt-2">
+    <div class="card-body">
+        <form action="/admin/item/<%= item.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" name="title" placeholder="Enter title" value="<%= item.title %>" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="price">Price</label>
+                <input type="number" name="price" placeholder="Enter price" value="<%= item.price %>" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" name="city" placeholder="Enter city" value="<%= item.city %>" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="name">Category</label>
+                <select name="categoryId" class="form-control">
+                    <option value="<%= item.categoryId._id %>"><%= item.categoryId.name %></option>
+                    <% for(i = 0; i < category.length; i++) { %>
+                        <option value="<%= category[i].id %>"><%= category[i].name %></option>
+                    <% } %>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="image">Image</label>
+                <input type="file" name="image" class="form-control" multiple>
+            </div>
+            <div class="form-group">
+                <label for="name">Description</label>
+                <textarea name="about" class="form-control"><%= item.description %></textarea>
+            </div>
+
+            <div class="text-right">
+                <a href="/admin/item" class="btn btn-secondary">Back</a>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </form>
+    </div>
+</div>

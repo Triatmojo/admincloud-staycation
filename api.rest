@@ -1,0 +1,16 @@
+
+GET  http://localhost:3000/api/v1/member/landing-page
+
+
+###
+
+GET  http://localhost:3000/api/v1/member/detail-page/5e96cbe292b97300fc902223
+
+
+###
+POST   http://localhost:3000/api/v1/member/booking-page
+Content-Type: application/json
+
+{
+    image: "/images/buktibayar.jpeg"
+}

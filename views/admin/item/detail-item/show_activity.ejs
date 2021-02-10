@@ -1,0 +1,57 @@
+<%- include('../../../partials/message.ejs'); %>
+<div class="card shadow mt-2">
+    <div class="card-body table-responsive">
+        <div class="row">
+            <div class="col-md-5"> 
+                <form action="/admin/item/add/activity" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" placeholder="Enter name " name="name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="type">Type</label>
+                    <input type="text" placeholder="Enter type" name="type" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="image">Image</label>
+                    <input type="file" name="image" class="form-control" required>
+                </div>
+                <div class="text-right">
+                    <input type="hidden" value="<%= itemId %>" name="itemId">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <table class="table table-striped" id="datatableActivity">
+                            <thead>
+                                 <th>No</th>
+                                 <th>Name</th>
+                                 <th>Type</th>
+                                 <th>Image</th>
+                                 <th>Action</th>
+                            </thead>
+                            <tbody>
+                                <% for(let i = 0; i < activity.length; i++) { %>
+                                    <tr>
+                                        <td><%= i + 1 %></td>
+                                        <td><%= activity[i].name %></td>
+                                        <td><%= activity[i].type %></td>
+                                        <td >
+                                            <img style="width: 100px; height: 100px;" src="http://localhost:3000/<%= activity[i].imageUrl %>" alt="Image activity">
+                                        </td>
+                                        <td>
+                                            <form action="/admin/item/<%= itemId %>/activity/<%= activity[i].id %>?_method=DELETE" method="POST" enctype="multipart/form-data">
+                                                <a href="javascript:void()" data-id="<%= activity[i].id %>" data-name="<%= activity[i].name %>" data-type="<%= activity[i].type %>" class="btn btn-sm btn-outline-warning button-update"><i class="fas fa-edit"></i></a>
+                                                <button type="submit"  class="btn btn-sm btn-outline-danger "><i class="fas fa-trash"></i></button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                <% } %>
+                            </tbody>
+                 </table>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+   
