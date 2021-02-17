@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const session = require('express-session');
 const flash = require('connect-flash');
+const cors = require('cors');
 mongoose.connect('mongodb+srv://admincloudstaycation:cloudstaycation@cluster0.4t9vs.mongodb.net/db_staycation?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -23,7 +24,7 @@ const apiRouter = require('./routes/api');
 
 var app = express();
 
-
+app.use(cors());
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
